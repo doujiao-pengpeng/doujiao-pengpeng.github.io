@@ -42,3 +42,9 @@ npm run deploy
 ```
 5 访问
 浏览器打开 https://repositorie_name.github.io/
+
+
+
+参考资源
+[1]: [使用 Hexo + Github 搭建博客教程，支持在新电脑同步管理项目和主题](https://www.jianshu.com/p/ae4f485ab3b3)
+[2]: [使用Hexo搭建个人Github博客](https://zhuanlan.zhihu.com/p/34379150)

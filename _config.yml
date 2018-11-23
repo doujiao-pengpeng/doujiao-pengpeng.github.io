@@ -78,9 +78,9 @@ node_sass:
   sourceComments: false
 
 ## Themes: https://hexo.io/themes/
-# theme: next
+theme: next
 # theme: cicada
-theme: clover
+# theme: clover
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
