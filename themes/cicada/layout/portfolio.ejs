@@ -1,0 +1,15 @@
+<section class="card-wrapper">
+  <% let cards = theme.portfolio.cards; %>
+  <% if (cards) { %>
+    <% for (let i in cards) { %>
+      <div class="card">
+        <div class="img" style="background-image: url(<%- cards[i].cover %>)"></div>
+        <div class="content">
+          <%- cards[i].content %>
+          <hr>
+          <div class="bottom"><a href="<%- cards[i].link %>">Try it</a></div>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+</section>

@@ -1,0 +1,41 @@
+<%
+  let height;
+  let subtitle;
+
+  if (is_archive()) {
+    subtitle = 'Archives';
+    height = 230;
+  } else if (page.layout === 'categories') {
+    subtitle = 'Categories';
+    height = 230;
+  } else if (page.layout === 'tags') {
+    subtitle = 'Tags';
+    height = 230;
+  } else if (page.layout === 'portfolio') {
+    subtitle = theme.portfolio.subtitle || config.subtitle;
+  } else if (page.layout === 'page') {
+    subtitle = theme.about.subtitle || config.subtitle;
+  } else if (is_category()) {
+    subtitle = 'CATEGORY: ' + page.category;
+  } else if (is_tag()) {
+    subtitle = 'TAG: ' + page.tag;
+  } else {
+    subtitle = config.subtitle;
+  }
+  if (theme.todaypoem) {
+    subtitle = 'Loading Poem...';
+  }
+%>
+
+<header class="blog-slide" style="height: <%= height %>px">
+  <nav class="blog-header">
+    <a class="mobile toggle-button"><i class="fas fa-bars fa-lg"></i></a>
+    <ul>
+      <li class="title"><a href="/"><%= config.title %></a></li>
+      <% for (let i in theme.menu) { %>
+        <li class="nav-item"><a href="<%- url_for(theme.menu[i]) %>"><%= __('menu.' + i) %></a></li>
+      <% } %>
+    </ul>
+  </nav>
+  <h1 class="subtitle"><span id='jinrishici-sentence'><%= subtitle %></span></h1>
+</header>

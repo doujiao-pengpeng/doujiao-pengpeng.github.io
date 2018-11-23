@@ -1,0 +1,32 @@
+<%
+  let links = {};
+  if (theme.social) {
+    for (let name in theme.social) {
+      if (theme.social[name]) {
+        links[name] = theme.social[name];
+      }
+    }
+  }
+%>
+
+<% if (Object.keys(links).length !== 0) { %>
+  <div class="blog-footer-social">
+    <ul>
+      <% for (let name in links) { %>
+        <% if (name === 'email') { %>
+          <li><a class="iconfont icon-<%= name %>" href="mailto:<%= links[name] %>"></a></li>
+        <% } else { %>
+          <li><a class="iconfont icon-<%= name %>" href="<%= links[name] %>"></a></li>
+        <% } %>
+      <% } %>
+      <% if (config.feed && config.feed.path && theme.rss === 'default') { %>
+        <li><a class="iconfont icon-rss" href="<%- url_for(config.feed.path) %>"></a></li>
+      <% } else if (theme.rss === 'default') { %>
+        <% const path = config.feed ? (config.feed.path ? config.feed.path : 'atom.xml') : 'atom.xml' %>
+        <li><a class="iconfont icon-rss" href="<%- url_for(path) %>"></a></li>
+      <% } else if (theme.rss) { %>
+        <li><a class="iconfont icon-rss" href="<%- url_for(theme.rss) %>"></a></li>
+      <% } %>
+    </ul>
+  </div>
+<% } %> 

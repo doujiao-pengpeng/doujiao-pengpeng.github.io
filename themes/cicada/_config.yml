@@ -1,0 +1,123 @@
+#======================
+#       Favicon        
+#======================
+favicon: /images/favicon.ico
+
+
+#======================
+#       Menu        
+#======================
+menu:
+  home: /
+  archives: /archives
+  # portfolio: /portfolio
+  # about: /about
+  # categories: /categories
+  # tags: /tags
+
+
+#======================
+#       Personal        
+#======================
+show_tag: true
+show_category: false
+
+
+#======================
+#    Code Highlight        
+#======================
+## see: https://highlightjs.org/static/demo/
+highlight: atom-one-light
+
+
+#======================
+#     Read More     
+#======================
+excerpt_link: Read More
+
+
+#======================
+#      Fancybox     
+#======================
+## see: http://fancybox.net
+fancybox: true
+
+
+#======================
+#      Comment    
+#======================
+## see: https://disqus.com/
+disqus_shortname: 
+
+
+#======================
+#      RSS    
+#======================
+# rss: false | default | your feed link
+##  default: use `atom.xml`, generator for `hexo-generator-feed`
+rss: default
+
+
+#======================
+#      Social    
+#======================
+social: 
+  email: dasd
+  instagram: dasd
+  douban: das
+  linkedin: dsa
+  weibo: 
+  stackoverflow: 
+  facebook: 
+  twitter: 
+  github: 
+  google: 
+  zhihu: 
+  pocket: 
+
+#======================
+#      Friends        
+#======================
+friends:
+  Mos's Blog: https://kexin-li.github.io
+
+
+#======================
+#   Google Analytics    
+#======================
+## see:  https://analytics.google.com
+google_analytics: 
+
+
+#======================
+#      Portfolio        
+#======================
+portfolio:
+  subtitle: Some Works
+  cards:
+    card1:
+      cover: /images/screenshot.png
+      content: Cicada is a concise and retro Hexo theme.
+      link: https://github.com/Kexin-Li/hexo-theme-cicada
+    card2:
+      cover: /images/screenshot.png
+      content: Cicada is a Hexo theme, it tastes like summer.
+      link: http://kexin-li.github.io
+    card3:
+      cover: /images/screenshot.png
+      content: Cicada is a Hexo theme, it tastes like summer.
+      link: http://kexin-li.github.io
+
+
+#======================
+#      About        
+#======================
+about:
+subtitle: About Me
+
+
+#======================
+#      今日诗词        
+#======================
+## see: https://www.jinrishici.com/
+poem: false

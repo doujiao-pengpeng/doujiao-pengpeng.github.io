@@ -1,0 +1,19 @@
+.blog-footer-friends {
+  margin-top: -10px;
+  .title {
+    color: #ccc;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .friends{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  a {
+    margin-right: 1.2em;
+    color: #ccc;
+    &:hover {
+      color: #5699e6;
+    }
+  }
+}

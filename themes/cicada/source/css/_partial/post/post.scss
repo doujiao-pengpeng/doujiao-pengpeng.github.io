@@ -1,0 +1,36 @@
+//======================
+//       Post
+//======================
+
+@import './turing';
+@import './image';
+@import './title';
+@import './content';
+@import './tags';
+@import './quote';
+@import './code';
+
+.blog-post {
+  margin-top: 50px;
+  width: 100%;
+  background-color: white;
+  @extend %box-shadow;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+.post-content {
+  padding: 25px;
+  @include media-query() {
+    padding: 10px;
+  }
+}
+
+
+// .detail-excerpt {
+//   @include media-query() {
+//     display: none;
+//   }
+// }

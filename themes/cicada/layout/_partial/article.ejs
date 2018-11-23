@@ -1,0 +1,52 @@
+<article class="blog-post">
+  <% if (item.cover) { %>
+    <div class="post-img" style="background-image: url(<%- url_for(item.cover) %>)">
+    </div>
+  <% } %>
+
+  <div class="post-content">
+    <div class="post-header">
+      <% if (is_home() || is_category() || is_tag()) { %>
+        <%- partial('post/meta-excerpt') %>
+      <% } else { %>
+        <%- partial('post/meta-full') %>
+      <% } %>
+    </div>
+    <div class="post-detail">
+      <% if (is_home() && item.excerpt) { %>
+        <div class="detail-excerpt">
+          <%- item.excerpt %>
+          <p id="excerpt">
+            <a href="<%- config.root %><%- item.path %>" class="blog-post-link">
+              <%= __('posts.read_more') %>
+            </a>
+          </p>
+          <hr>
+        </div>
+      <% } else if ((is_category() || is_tag()) && item.excerpt) { %>
+        <%- item.excerpt %>
+        <p id="excerpt">
+          <a href="<%- config.root %><%- item.path %>" class="blog-post-link">
+            <%= __('posts.read_more') %>
+          </a>
+        </p>
+        <hr>
+      <% } else { %>
+        <%- item.content %>
+        <hr>
+      <% } %>
+    </div>
+
+    <% if (!is_home() && !is_category() && !is_tag()) { %>
+      <% if (theme.copyright) { %>
+        <%- partial('post/copyright') %>
+      <% } %>
+    <% } %>
+
+    <% if (!is_home() && !is_category() && !is_tag()) { %>
+      <%- partial('post/article-tags') %>
+      <%- partial('post/turing') %>
+      <%- partial('comments') %>
+    <% } %>
+  </div>
+</article>

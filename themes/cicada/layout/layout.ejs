@@ -1,0 +1,24 @@
+<%
+  let height;
+  if (is_archive()) {
+    height = 50;
+  } else {
+    height = -150;
+  }
+%>
+
+<html lang="<%- config.language %>">
+  <%- partial('_partial/head/head') %>
+  <body>
+    <%- partial('_partial/header/header') %>
+    <%- partial('_partial/header/popup') %>
+    
+    <main class="blog-main" style="margin-top: <%= height %>px">
+      <%- body %>
+    </main>
+    
+    <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></div>
+
+    <%- partial('_partial/footer/footer') %>
+  </body>
+</html>

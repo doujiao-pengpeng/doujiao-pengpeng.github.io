@@ -1,0 +1,57 @@
+h1 {
+  letter-spacing: .02em;
+}
+
+h2 {
+  font-size: 1.42em;
+  margin: 1.2em 0;
+}
+
+h3 {
+  margin: 1.0em 0;
+}
+
+p {
+  margin-bottom: 1.2em;
+  hyphens: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+abbr, acronym {
+  text-decoration: none;
+  @include underline(dashed);
+}
+
+hr {
+  margin: 36px 0;
+  border: 0;
+  border-top: 1px dashed #d8d8d5;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+  tr:nth-of-type(even) {
+    background: #fcf8ef;
+  }
+  th {
+    text-transform: uppercase;
+    background: #faeed2;
+  }
+  td, th {
+    padding: 6px;
+    font-size: 17px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+  }
+}

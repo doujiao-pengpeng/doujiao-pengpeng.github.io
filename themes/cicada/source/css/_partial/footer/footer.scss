@@ -1,0 +1,19 @@
+//======================
+//       Footer        
+//======================
+
+@import './social';
+@import './copyright';
+@import './friends';
+
+.blog-footer {
+  margin: 0 auto;
+  max-width: 900px;
+  margin-top: 60px;
+  @include media-query() {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    padding-right: $spacing-unit / 2 - 5;
+    padding-left: $spacing-unit / 2 - 5;
+  }
+}

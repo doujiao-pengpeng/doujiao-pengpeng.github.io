@@ -1,0 +1,41 @@
+//======================
+//       Base
+//======================
+
+
+html {
+  box-sizing: border-box;
+  color: $font-color;
+  background-color: #fcf8ef;
+}
+
+body {
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.blog-main {
+  margin: 50px auto;
+  max-width: 900px;
+
+  @include media-query() {
+    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    padding-right: $spacing-unit / 2 - 5;
+    padding-left: $spacing-unit / 2 - 5;
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+  }
+}
+
+::selection {
+  background: #75abea;
+  color: #fff;
+}
