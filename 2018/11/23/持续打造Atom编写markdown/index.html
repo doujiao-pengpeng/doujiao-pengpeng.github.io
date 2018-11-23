@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,17 +80,18 @@
 
 
 <meta name="description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
+<meta name="keywords" content="前端 设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="持续打造Atom编写markdown">
 <meta property="og:url" content="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="豆角的绿色生活">
 <meta property="og:description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png">
 <meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142642281.png">
 <meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142734489.png">
 <meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141934478.png">
-<meta property="og:updated_time" content="2018-11-23T06:33:14.112Z">
+<meta property="og:updated_time" content="2018-11-23T06:33:24.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="持续打造Atom编写markdown">
 <meta name="twitter:description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
@@ -102,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -110,7 +111,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -130,7 +131,7 @@
 
 
 
-  <title>持续打造Atom编写markdown | Hexo</title>
+  <title>持续打造Atom编写markdown | 豆角的绿色生活</title>
   
 
 
@@ -142,7 +143,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -160,12 +161,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">豆角的绿色生活</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">不畏于心，不念于行</p>
       
   </div>
 
@@ -190,7 +191,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            Home
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -200,7 +221,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            Archives
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-birthday-cake"></i> <br>
+            
+            作品
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
           </a>
         </li>
       
@@ -240,13 +281,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="豆角">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="https://dn-qiniu-avatar.qbox.me/avatar/3ca4d672391069eb4335274ff53f7453?qiniu-avatar">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="豆角的绿色生活">
     </span>
 
     
@@ -264,9 +305,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-23T10:17:34+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T10:17:34+08:00">
                 2018-11-23
               </time>
             
@@ -279,6 +320,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/23/持续打造Atom编写markdown/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/23/持续打造Atom编写markdown/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -380,6 +431,16 @@
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -404,10 +465,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -416,8 +477,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <img class="site-author-image" itemprop="image" src="https://dn-qiniu-avatar.qbox.me/avatar/3ca4d672391069eb4335274ff53f7453?qiniu-avatar" alt="豆角">
+            
+              <p class="site-author-name" itemprop="name">豆角</p>
+              <p class="site-description motion-element" itemprop="description">记录自己的学习与生活，love the life!</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -428,7 +491,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -488,13 +551,13 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">豆角</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -502,7 +565,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -620,6 +683,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://ibeans.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/11/23/持续打造Atom编写markdown/';
+          this.page.identifier = '2018/11/23/持续打造Atom编写markdown/';
+          this.page.title = '持续打造Atom编写markdown';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ibeans.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -632,10 +715,6 @@
   
 
 
-
-
-
-  
 
 
 
