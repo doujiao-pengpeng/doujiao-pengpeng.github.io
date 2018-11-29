@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="python,">
 
 
 
@@ -79,23 +79,18 @@
 
 
 
-<meta name="description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
-<meta name="keywords" content="前端 设计">
+<meta name="description" content="在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。ps: python 2.7环境 subprocess模块官方文档：subprocess  这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。  有两种方式使用该模块：">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="持续打造Atom编写markdown">
-<meta property="og:url" content="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/index.html">
+<meta property="og:title" content="python 子进程调用及通信">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/python-子进程调用及通信/index.html">
 <meta property="og:site_name" content="豆角的绿色生活">
-<meta property="og:description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
+<meta property="og:description" content="在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。ps: python 2.7环境 subprocess模块官方文档：subprocess  这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。  有两种方式使用该模块：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142642281.png">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142734489.png">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141934478.png">
-<meta property="og:updated_time" content="2018-11-23T06:33:24.119Z">
+<meta property="og:updated_time" content="2018-11-29T06:32:03.455Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="持续打造Atom编写markdown">
-<meta name="twitter:description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
-<meta name="twitter:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png">
+<meta name="twitter:title" content="python 子进程调用及通信">
+<meta name="twitter:description" content="在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。ps: python 2.7环境 subprocess模块官方文档：subprocess  这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。  有两种方式使用该模块：">
 
 
 
@@ -125,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/29/python-子进程调用及通信/">
 
 
 
 
 
-  <title>持续打造Atom编写markdown | 豆角的绿色生活</title>
+  <title>python 子进程调用及通信 | 豆角的绿色生活</title>
   
 
 
@@ -278,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/python-子进程调用及通信/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="豆角">
@@ -295,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">持续打造Atom编写markdown</h1>
+          <h1 class="post-title" itemprop="name headline">python 子进程调用及通信</h1>
         
 
         <div class="post-meta">
@@ -307,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T10:17:34+08:00">
-                2018-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T12:57:34+08:00">
+                2018-11-29
               </time>
             
 
@@ -326,8 +321,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/23/持续打造Atom编写markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/23/持续打造Atom编写markdown/" itemprop="commentCount"></span>
+                <a href="/2018/11/29/python-子进程调用及通信/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/29/python-子进程调用及通信/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,20 +350,32 @@
       
 
       
-        <blockquote>
-<p>一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。</p>
+        <p>在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。<br>ps: python 2.7环境</p>
+<h2 id="subprocess模块"><a href="#subprocess模块" class="headerlink" title="subprocess模块"></a>subprocess模块</h2><p>官方文档：<a href="https://docs.python.org/2/library/subprocess.html" target="_blank" rel="noopener">subprocess</a></p>
+<blockquote>
+<p>这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。</p>
 </blockquote>
-<h2 id="1-图片相关"><a href="#1-图片相关" class="headerlink" title="1. 图片相关"></a>1. 图片相关</h2><p>github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。</p>
-<h3 id="1-1-准备七牛环境"><a href="#1-1-准备七牛环境" class="headerlink" title="1.1 准备七牛环境"></a>1.1 准备七牛环境</h3><ol>
-<li>创建账号</li>
-<li>创建一个新的对象存储空间，这里是images,华南地区</li>
-<li>准备好下面几个信息<br>3.1. 七牛密钥（个人中心查看）<br>3.2. bucket(刚才填的存储空间名称 images)<br>3.3. domain(图片外链： 内容管理，外链默认域名)<br>3.4. uphost(对应所选地区的客户端上传地址)</li>
+<p>有两种方式使用该模块：</p>
+<ol>
+<li>使用常见函数 call(), check_all(), check_output()</li>
+<li>使用Popen 类和communicate()方法。</li>
 </ol>
-<p><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png" alt="创建对象存储空间" title="创建对象存储空间"></p>
-<p><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142642281.png" alt="图片外链" title="domain"></p>
-<p><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142734489.png" alt="存储区域" title="存储区域"></p>
-<h3 id="1-2-安装Atom插件"><a href="#1-2-安装Atom插件" class="headerlink" title="1.2 安装Atom插件"></a>1.2 安装Atom插件</h3><p>安装Markdown-img-paste插件后，设置配置，下面的一些选项<br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141934478.png" alt="配置"></p>
-<p>参考链接<br>[1]: <a href="https://www.cnblogs.com/fanzhidongyzby/p/6637084.html" target="_blank" rel="noopener">使用Atom打造无懈可击的Markdown编辑器</a></p>
+<p>这里仅研究第二种</p>
+<h2 id="Popen类"><a href="#Popen类" class="headerlink" title="Popen类"></a>Popen类</h2><p>suprocess主要通过Popen类管理进程（创建、管理），来满足便捷函数不能满足的功能。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">subprocess</span>.<span class="title">Popen</span><span class="params">(args, bufsize=<span class="number">0</span>, executable=None,</span></span></span><br><span class="line"><span class="class"><span class="params">  stdin=None, stdout=None, stderr=None, preexec_fn=None,</span></span></span><br><span class="line"><span class="class"><span class="params">  close_fds=False, shell=False, cwd=None, env=None,</span></span></span><br><span class="line"><span class="class"><span class="params">  universal_newlines=False, startupinfo=None, creationflags=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"># <span class="title">args</span>:</span> 数组（推荐）或者是字符串。如果是数组默认执行数组第一个参数，如果是字符串默认使用平台默认shell解释器。</span><br><span class="line"><span class="comment"># shell： 默认false,表示是否使用shell作为程序执行,如果为true，args推荐使用string</span></span><br><span class="line"><span class="comment"># bufsize: 同样作为一个参数，0：无 1： line buffer, 其它正值：给定大小 负值: 系统默认。</span></span><br><span class="line"><span class="comment"># executable: 指定执行程序，shell为false时，替换args第一个参数，但是仍然传递，可以作显示实际执行的程序名的作用，shell为true，替换默认的/bin/sh</span></span><br><span class="line"><span class="comment"># stdin, stdout and stderr: 分别指定执行程序的标准输入输出，错误处理。有效值：pipe,有效文件描述符，有效文件对象，none.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Popen实例方法"><a href="#Popen实例方法" class="headerlink" title="Popen实例方法"></a>Popen实例方法</h3><h4 id="Popen-poll"><a href="#Popen-poll" class="headerlink" title="Popen.poll()"></a>Popen.poll()</h4><p>检查子进程是否终止，设置并返回<code>returncode</code></p>
+<h4 id="Popen-wait"><a href="#Popen-wait" class="headerlink" title="Popen.wait()"></a>Popen.wait()</h4><p>等待子进程终止，设置并返回<code>returncode</code></p>
+<h4 id="Popen-communicate-input-None"><a href="#Popen-communicate-input-None" class="headerlink" title="Popen.communicate(input=None)"></a>Popen.communicate(input=None)</h4><p>与子进程交互: 向stdin发送数据, 从stdout/stderr读取数据，直到文件尾, 并等待子进程终止。<br>输入：input应该是一个要发送给子进程的字符串或none<br>输出：返回一个turple(stdoutdata, stderrdata)<br><strong>注意</strong>：</p>
+<ol>
+<li>如果想要读取或者发送数据, 需要在创建子进程时指定stdin=PIPE、stdout=PIPE、stderr=PIPE</li>
+<li>数据都是存放在内存buffer中的，数据过大时不要使用这个方法</li>
+</ol>
+<h4 id="Popen-send-signal-signal"><a href="#Popen-send-signal-signal" class="headerlink" title="Popen.send_signal(signal)"></a>Popen.send_signal(signal)</h4><p>发送<code>signal</code>信号给子进程</p>
+<h4 id="Popen-terminate"><a href="#Popen-terminate" class="headerlink" title="Popen.terminate()"></a>Popen.terminate()</h4><p>终止子进程</p>
+<h4 id="Popen-kill"><a href="#Popen-kill" class="headerlink" title="Popen.kill()"></a>Popen.kill()</h4><p>杀死子进程</p>
+<h3 id="Popen实例属性"><a href="#Popen实例属性" class="headerlink" title="Popen实例属性"></a>Popen实例属性</h3><h4 id="Popen-stdin"><a href="#Popen-stdin" class="headerlink" title="Popen.stdin"></a>Popen.stdin</h4><p>如果stdin参数是pipe,该属性将是表示数据的文件对象,否则为None</p>
+<h4 id="Popen-stdout-Popen-stderr"><a href="#Popen-stdout-Popen-stderr" class="headerlink" title="Popen.stdout Popen.stderr"></a>Popen.stdout Popen.stderr</h4><p>同上</p>
+<h4 id="Popen-pid"><a href="#Popen-pid" class="headerlink" title="Popen.pid"></a>Popen.pid</h4><p>子进程pid</p>
+<h4 id="Popen-returncode"><a href="#Popen-returncode" class="headerlink" title="Popen.returncode"></a>Popen.returncode</h4><p>子进程的返回码，由 poll() and wait() 设置，间接由communicate设置。None表示子进程还没有结束，<br>-N表示子进程通过<code>singal</code>结束</p>
 
       
     </div>
@@ -384,6 +391,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
       
@@ -393,8 +406,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/23/使用hexo搭建blog/" rel="next" title="使用hexo搭建blog">
-                <i class="fa fa-chevron-left"></i> 使用hexo搭建blog
+              <a href="/2018/11/28/瞎想/" rel="next" title="瞎想">
+                <i class="fa fa-chevron-left"></i> 瞎想
               </a>
             
           </div>
@@ -402,10 +415,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/26/打造一个上传组件/" rel="prev" title="打造一个上传组件">
-                打造一个上传组件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-图片相关"><span class="nav-number">1.</span> <span class="nav-text">1. 图片相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-准备七牛环境"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 准备七牛环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-安装Atom插件"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 安装Atom插件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#subprocess模块"><span class="nav-number">1.</span> <span class="nav-text">subprocess模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Popen类"><span class="nav-number">2.</span> <span class="nav-text">Popen类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Popen实例方法"><span class="nav-number">2.1.</span> <span class="nav-text">Popen实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-poll"><span class="nav-number">2.1.1.</span> <span class="nav-text">Popen.poll()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-wait"><span class="nav-number">2.1.2.</span> <span class="nav-text">Popen.wait()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-communicate-input-None"><span class="nav-number">2.1.3.</span> <span class="nav-text">Popen.communicate(input=None)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-send-signal-signal"><span class="nav-number">2.1.4.</span> <span class="nav-text">Popen.send_signal(signal)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-terminate"><span class="nav-number">2.1.5.</span> <span class="nav-text">Popen.terminate()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-kill"><span class="nav-number">2.1.6.</span> <span class="nav-text">Popen.kill()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Popen实例属性"><span class="nav-number">2.2.</span> <span class="nav-text">Popen实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-stdin"><span class="nav-number">2.2.1.</span> <span class="nav-text">Popen.stdin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-stdout-Popen-stderr"><span class="nav-number">2.2.2.</span> <span class="nav-text">Popen.stdout Popen.stderr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-pid"><span class="nav-number">2.2.3.</span> <span class="nav-text">Popen.pid</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-returncode"><span class="nav-number">2.2.4.</span> <span class="nav-text">Popen.returncode</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -703,9 +712,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/11/23/持续打造Atom编写markdown/';
-          this.page.identifier = '2018/11/23/持续打造Atom编写markdown/';
-          this.page.title = '持续打造Atom编写markdown';
+          this.page.url = 'http://yoursite.com/2018/11/29/python-子进程调用及通信/';
+          this.page.identifier = '2018/11/29/python-子进程调用及通信/';
+          this.page.title = 'python 子进程调用及通信';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ibeans.disqus.com/embed.js';

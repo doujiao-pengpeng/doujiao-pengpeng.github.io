@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="前端,">
 
 
 
@@ -79,23 +79,18 @@
 
 
 
-<meta name="description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
-<meta name="keywords" content="前端 设计">
+<meta name="description" content="图片上传应该知道的知识balabala关于文件上传，现代的处理方式基本上都靠xmlhttpRequest 2.0提供的通过blob对象上传了。关于上传原理这块，可以看看这篇文章。 想要上传一个文件可以通过三种方式  用户input控件， 通过拖拽生成的 通过canvas  之后通过fileReader + blob对象发送二进制文件给服务端。 得益于blob对象，可以分片上传。通过分片我们又可以实">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="持续打造Atom编写markdown">
-<meta property="og:url" content="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/index.html">
+<meta property="og:title" content="打造一个上传组件">
+<meta property="og:url" content="http://yoursite.com/2018/11/26/打造一个上传组件/index.html">
 <meta property="og:site_name" content="豆角的绿色生活">
-<meta property="og:description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
+<meta property="og:description" content="图片上传应该知道的知识balabala关于文件上传，现代的处理方式基本上都靠xmlhttpRequest 2.0提供的通过blob对象上传了。关于上传原理这块，可以看看这篇文章。 想要上传一个文件可以通过三种方式  用户input控件， 通过拖拽生成的 通过canvas  之后通过fileReader + blob对象发送二进制文件给服务端。 得益于blob对象，可以分片上传。通过分片我们又可以实">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142642281.png">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142734489.png">
-<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141934478.png">
-<meta property="og:updated_time" content="2018-11-23T06:33:24.119Z">
+<meta property="og:updated_time" content="2018-11-29T12:56:22.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="持续打造Atom编写markdown">
-<meta name="twitter:description" content="一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。  1. 图片相关github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。 1.1 准备七牛环境 创建账号 创建一个新的对象存储空间，这里是images,华南地区 准备好下面几个信息3.1. 七牛密钥（个人中心查看）3.2. bucket(刚才填的存储空">
-<meta name="twitter:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png">
+<meta name="twitter:title" content="打造一个上传组件">
+<meta name="twitter:description" content="图片上传应该知道的知识balabala关于文件上传，现代的处理方式基本上都靠xmlhttpRequest 2.0提供的通过blob对象上传了。关于上传原理这块，可以看看这篇文章。 想要上传一个文件可以通过三种方式  用户input控件， 通过拖拽生成的 通过canvas  之后通过fileReader + blob对象发送二进制文件给服务端。 得益于blob对象，可以分片上传。通过分片我们又可以实">
 
 
 
@@ -125,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/26/打造一个上传组件/">
 
 
 
 
 
-  <title>持续打造Atom编写markdown | 豆角的绿色生活</title>
+  <title>打造一个上传组件 | 豆角的绿色生活</title>
   
 
 
@@ -278,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/持续打造Atom编写markdown/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/打造一个上传组件/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="豆角">
@@ -295,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">持续打造Atom编写markdown</h1>
+          <h1 class="post-title" itemprop="name headline">打造一个上传组件</h1>
         
 
         <div class="post-meta">
@@ -307,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T10:17:34+08:00">
-                2018-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T20:48:46+08:00">
+                2018-11-26
               </time>
             
 
@@ -326,8 +321,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/23/持续打造Atom编写markdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/23/持续打造Atom编写markdown/" itemprop="commentCount"></span>
+                <a href="/2018/11/26/打造一个上传组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/26/打造一个上传组件/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,20 +350,25 @@
       
 
       
-        <blockquote>
-<p>一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。</p>
-</blockquote>
-<h2 id="1-图片相关"><a href="#1-图片相关" class="headerlink" title="1. 图片相关"></a>1. 图片相关</h2><p>github一个仓库的容量有限，最好上传到图床，且速度更快，选的是七牛云存储。</p>
-<h3 id="1-1-准备七牛环境"><a href="#1-1-准备七牛环境" class="headerlink" title="1.1 准备七牛环境"></a>1.1 准备七牛环境</h3><ol>
-<li>创建账号</li>
-<li>创建一个新的对象存储空间，这里是images,华南地区</li>
-<li>准备好下面几个信息<br>3.1. 七牛密钥（个人中心查看）<br>3.2. bucket(刚才填的存储空间名称 images)<br>3.3. domain(图片外链： 内容管理，外链默认域名)<br>3.4. uphost(对应所选地区的客户端上传地址)</li>
+        <h2 id="图片上传应该知道的知识balabala"><a href="#图片上传应该知道的知识balabala" class="headerlink" title="图片上传应该知道的知识balabala"></a>图片上传应该知道的知识balabala</h2><p>关于文件上传，现代的处理方式基本上都靠xmlhttpRequest 2.0提供的通过blob对象上传了。<br>关于上传原理这块，可以看看这篇文章。</p>
+<p>想要上传一个文件可以通过三种方式</p>
+<ol>
+<li>用户input控件，</li>
+<li>通过拖拽生成的</li>
+<li>通过canvas</li>
 </ol>
-<p><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141154394.png" alt="创建对象存储空间" title="创建对象存储空间"></p>
-<p><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142642281.png" alt="图片外链" title="domain"></p>
-<p><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123142734489.png" alt="存储区域" title="存储区域"></p>
-<h3 id="1-2-安装Atom插件"><a href="#1-2-安装Atom插件" class="headerlink" title="1.2 安装Atom插件"></a>1.2 安装Atom插件</h3><p>安装Markdown-img-paste插件后，设置配置，下面的一些选项<br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181123141934478.png" alt="配置"></p>
-<p>参考链接<br>[1]: <a href="https://www.cnblogs.com/fanzhidongyzby/p/6637084.html" target="_blank" rel="noopener">使用Atom打造无懈可击的Markdown编辑器</a></p>
+<p>之后通过fileReader + blob对象发送二进制文件给服务端。</p>
+<p>得益于blob对象，可以分片上传。通过分片我们又可以实现断点续传，重传，秒传等效果。</p>
+<p>在使用npm上simple-uploader.js封装的vue组件，可以实现分片功能，因为在和后端接口不是是使用http状态码来指定失败与否的，还是需要仔细研究下，定制下。总体来说这个还是很强大的。</p>
+<p>归根结底的我们的上传步骤如下：</p>
+<ol>
+<li>获取file对象或者数组</li>
+<li>通过fileReader + blob对象分片发送</li>
+<li>制定好接口逻辑判断每片是否上传成功，制定成功与失败处理逻辑</li>
+<li>通知单个文件上传成功</li>
+<li>通知整个文件列表上传成功</li>
+</ol>
+<h2 id="一个图片上传组件应该具备哪些"><a href="#一个图片上传组件应该具备哪些" class="headerlink" title="一个图片上传组件应该具备哪些"></a>一个图片上传组件应该具备哪些</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ======================================================</span></span><br><span class="line"><span class="comment">// 定义一些常量</span></span><br><span class="line"><span class="keyword">let</span> version = <span class="string">'1.0'</span></span><br><span class="line"><span class="keyword">let</span> uid = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一些支持的变量 can I use</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义默认配置 defaultOptions = &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ======================================================</span></span><br><span class="line"><span class="comment">// 定义类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Uploader</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(x, y) &#123;</span><br><span class="line">    <span class="keyword">this</span>.x = x;</span><br><span class="line">    <span class="keyword">this</span>.y = y;</span><br><span class="line">    <span class="keyword">this</span>.uid = uid++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 平行注入一些方法mixin, 参考</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ======================================================</span></span><br><span class="line"><span class="comment">// 定义一些静态属性和静态方法</span></span><br><span class="line">Uploader.version = version;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ======================================================</span></span><br><span class="line"><span class="comment">// 导出</span></span><br><span class="line"><span class="keyword">export</span> defalut Uploader</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -384,6 +384,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
 
       
       
@@ -393,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/23/使用hexo搭建blog/" rel="next" title="使用hexo搭建blog">
-                <i class="fa fa-chevron-left"></i> 使用hexo搭建blog
+              <a href="/2018/11/23/持续打造Atom编写markdown/" rel="next" title="持续打造Atom编写markdown">
+                <i class="fa fa-chevron-left"></i> 持续打造Atom编写markdown
               </a>
             
           </div>
@@ -403,8 +409,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/26/打造一个上传组件/" rel="prev" title="打造一个上传组件">
-                打造一个上传组件 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/27/使用rollup/" rel="prev" title="使用rollup">
+                使用rollup <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-图片相关"><span class="nav-number">1.</span> <span class="nav-text">1. 图片相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-准备七牛环境"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 准备七牛环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-安装Atom插件"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 安装Atom插件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片上传应该知道的知识balabala"><span class="nav-number">1.</span> <span class="nav-text">图片上传应该知道的知识balabala</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个图片上传组件应该具备哪些"><span class="nav-number">2.</span> <span class="nav-text">一个图片上传组件应该具备哪些</span></a></li></ol></div>
             
 
           </div>
@@ -703,9 +709,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/11/23/持续打造Atom编写markdown/';
-          this.page.identifier = '2018/11/23/持续打造Atom编写markdown/';
-          this.page.title = '持续打造Atom编写markdown';
+          this.page.url = 'http://yoursite.com/2018/11/26/打造一个上传组件/';
+          this.page.identifier = '2018/11/26/打造一个上传组件/';
+          this.page.title = '打造一个上传组件';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ibeans.disqus.com/embed.js';
