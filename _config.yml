@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
+title: 豆角的绿色生活
+subtitle: 不畏于心，不念于行
+description: 记录自己的学习与生活，love the life!
+keywords: 前端 设计
+author: 豆角
+language: zh-Hans
 timezone:
 
 # URL
