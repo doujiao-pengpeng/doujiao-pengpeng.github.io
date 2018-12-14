@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="前端,">
 
 
 
@@ -79,18 +79,23 @@
 
 
 
-<meta name="description" content="初体验hexo 安装hexo, 初始化一个目录并安装依赖，运行一个服务器 12345cnpm install hexo-cli -ghexo init blogcd blogcnpm install #hexo server # 运行  直接写一个文件 1hexo new [layout] &quot;my first hexo blog&quot;  安装主题 1git clone https://github.c">
-<meta name="keywords" content="前端 设计">
+<meta name="description" content="前端错误监控对于前端代码质量，有一个很好的监控和上报至关重要。准备写四篇  错误监控基础篇 性能监控基础篇 错误上报与sentry基础篇 各场景实战篇  使用sentrysentry workflow如果你是一个开发者，你的工作流可能是这样的：设计 -&amp;gt; 开发 -&amp;gt; 测试 -&amp;gt; CI/CD -&amp;gt; 发现问题 -&amp;gt; 定位问题 -&amp;gt; 修复 很多工具帮助我们开发，但是部">
+<meta name="keywords" content="前端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用hexo搭建blog">
-<meta property="og:url" content="http://yoursite.com/2018/11/23/使用hexo搭建blog/index.html">
+<meta property="og:title" content="sentry">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/sentry/index.html">
 <meta property="og:site_name" content="豆角的绿色生活">
-<meta property="og:description" content="初体验hexo 安装hexo, 初始化一个目录并安装依赖，运行一个服务器 12345cnpm install hexo-cli -ghexo init blogcd blogcnpm install #hexo server # 运行  直接写一个文件 1hexo new [layout] &quot;my first hexo blog&quot;  安装主题 1git clone https://github.c">
+<meta property="og:description" content="前端错误监控对于前端代码质量，有一个很好的监控和上报至关重要。准备写四篇  错误监控基础篇 性能监控基础篇 错误上报与sentry基础篇 各场景实战篇  使用sentrysentry workflow如果你是一个开发者，你的工作流可能是这样的：设计 -&amp;gt; 开发 -&amp;gt; 测试 -&amp;gt; CI/CD -&amp;gt; 发现问题 -&amp;gt; 定位问题 -&amp;gt; 修复 很多工具帮助我们开发，但是部">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T02:34:42.110Z">
+<meta property="og:image" content="https://blog.sentry.io/img/post-images/sentry-workflow/needs-triage.png">
+<meta property="og:image" content="https://blog.sentry.io/img/post-images/sentry-workflow/more-data.png">
+<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203456944.png">
+<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203732415.png">
+<meta property="og:updated_time" content="2018-12-14T01:21:12.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用hexo搭建blog">
-<meta name="twitter:description" content="初体验hexo 安装hexo, 初始化一个目录并安装依赖，运行一个服务器 12345cnpm install hexo-cli -ghexo init blogcd blogcnpm install #hexo server # 运行  直接写一个文件 1hexo new [layout] &quot;my first hexo blog&quot;  安装主题 1git clone https://github.c">
+<meta name="twitter:title" content="sentry">
+<meta name="twitter:description" content="前端错误监控对于前端代码质量，有一个很好的监控和上报至关重要。准备写四篇  错误监控基础篇 性能监控基础篇 错误上报与sentry基础篇 各场景实战篇  使用sentrysentry workflow如果你是一个开发者，你的工作流可能是这样的：设计 -&amp;gt; 开发 -&amp;gt; 测试 -&amp;gt; CI/CD -&amp;gt; 发现问题 -&amp;gt; 定位问题 -&amp;gt; 修复 很多工具帮助我们开发，但是部">
+<meta name="twitter:image" content="https://blog.sentry.io/img/post-images/sentry-workflow/needs-triage.png">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/23/使用hexo搭建blog/">
+  <link rel="canonical" href="http://yoursite.com/2018/12/13/sentry/">
 
 
 
 
 
-  <title>使用hexo搭建blog | 豆角的绿色生活</title>
+  <title>sentry | 豆角的绿色生活</title>
   
 
 
@@ -273,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/23/使用hexo搭建blog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/sentry/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="豆角">
@@ -290,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用hexo搭建blog</h1>
+          <h1 class="post-title" itemprop="name headline">sentry</h1>
         
 
         <div class="post-meta">
@@ -302,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-23T09:44:19+08:00">
-                2018-11-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T20:17:55+08:00">
+                2018-12-13
               </time>
             
 
@@ -321,8 +326,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/23/使用hexo搭建blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/23/使用hexo搭建blog/" itemprop="commentCount"></span>
+                <a href="/2018/12/13/sentry/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/13/sentry/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,30 +355,39 @@
       
 
       
-        <h2 id="初体验hexo"><a href="#初体验hexo" class="headerlink" title="初体验hexo"></a>初体验hexo</h2><ol>
-<li><p>安装hexo, 初始化一个目录并安装依赖，运行一个服务器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">cnpm install #</span><br><span class="line">hexo server # 运行</span><br></pre></td></tr></table></figure>
+        <h2 id="前端错误监控"><a href="#前端错误监控" class="headerlink" title="前端错误监控"></a>前端错误监控</h2><p>对于前端代码质量，有一个很好的监控和上报至关重要。<br>准备写四篇</p>
+<ul>
+<li>错误监控基础篇</li>
+<li>性能监控基础篇</li>
+<li>错误上报与sentry基础篇</li>
+<li>各场景实战篇</li>
+</ul>
+<h2 id="使用sentry"><a href="#使用sentry" class="headerlink" title="使用sentry"></a>使用sentry</h2><h3 id="sentry-workflow"><a href="#sentry-workflow" class="headerlink" title="sentry workflow"></a>sentry workflow</h3><p>如果你是一个开发者，你的工作流可能是这样的：<br>设计 -&gt; 开发 -&gt; 测试 -&gt; CI/CD -&gt; 发现问题 -&gt; 定位问题 -&gt; 修复</p>
+<p>很多工具帮助我们开发，但是部署后的过程（发现、定位、解决问题）依然很痛苦。当在生产环境汇总引入一个bug时，如何快速收到bug警报；怎样估计影响和紧急性；怎样快速定位到问题根本原因，提交修复版本后怎样知道是否已经解决了问题。</p>
+<p>sentry通过整合已有工作流帮助我们解决这些问题，引入sentry后，我们的工作流可能是这样：<br>写代码 -&gt; 部署代码 （有一个bug: 空指针异常） -&gt; 用户触发bug -&gt; sentry立即收集并通过各种预置方式通知你</p>
+<p>这个通知带你去一个仪表板,给你必要的背景下快速分流问题——频率,用户的影响,影响代码的一部分,和团队成员是一个可能的所有者的问题。然后告诉你详细的信息来帮助您调试堆栈跟踪、堆栈本地人,之前的事件,可能导致问题的提交,自定义数据捕获时的错误。你也可以自动开始跟踪这个问题你的项目管理工具。</p>
+<p>确认您提交的问题修复后库。此时,您不再需要照顾修复因为哨兵手表自动提交,因为他们去解决这个问题的时候部署。如果问题返回后,标记为回归和你再次通知。</p>
+<p>同时,遇到错误的用户甚至不需要发送你一个模糊的”你的网站坏了!”的信息来帮助你修复bug。值得注意的是,虽然,哨兵也可以为这些用户提供友好的方式发送额外的信息可能会帮助你更快解决问题。</p>
+<p>sentry是非常灵活的，每个项目的环境可能是不同的，每个人都可以通过一些稍微不同的配置来配置最适合他们的特定环境，这是sentry工作流的关键。</p>
+<h3 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h3><h4 id="SDK集成"><a href="#SDK集成" class="headerlink" title="SDK集成"></a>SDK集成</h4><p>sentry是一个C/S架构，整合sentry SDK到应用中，当发生error时，发送error信息到sentry服务器。由于语言或者框架的不同，错误上报可能完全是自动的或者自己指定特定的错误。比如：</p>
+<ul>
+<li><p>JavaScript全局未捕获错误:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Raven.config(<span class="string">'&lt;your project specfic key, called a DSN&gt;'</span>).install()</span><br><span class="line">Raven.context(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    initMyApp();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>直接写一个文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] "my first hexo blog"</span><br></pre></td></tr></table></figure>
+<li><p>捕获特定错误</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// Do something that should not raise an exception</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    Raven.captureException(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装主题</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署到github<br>首先需要在自己的github上生成一个[repositorie_name].github.io的<strong>repositorie</strong>，并配置其github-pages.</p>
-</li>
-</ol>
-<p>修改配置文件_config.yml<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/username/repositorie_name.github.io.git</span></span><br></pre></td></tr></table></figure></p>
-<p>运行部署命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 配置到package.json</span><br><span class="line"><span class="meta">#</span> "deploy": "hexo clean &amp;&amp; hexo g &amp;&amp; hexo d",</span><br><span class="line">npm run deploy</span><br></pre></td></tr></table></figure></p>
-<p>5 访问<br>浏览器打开 <a href="https://repositorie_name.github.io/" target="_blank" rel="noopener">https://repositorie_name.github.io/</a></p>
-<h3 id="图片问题"><a href="#图片问题" class="headerlink" title="图片问题"></a>图片问题</h3><p>写bolg自然少不了图片了，这里需要熟悉下md(markdown)文件引用图片的两种方式，内联和引用，具体使用方式可以查看<a href="https://coding.net/help/doc/project/markdown.html" target="_blank" rel="noopener">markdown语法</a>，下面是个例子。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">内联方式：</span><br><span class="line">  ![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line">  或</span><br><span class="line">  ![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br><span class="line"></span><br><span class="line">引用方式：</span><br><span class="line">![<span class="string">Alt text</span>][<span class="symbol">id</span>]  使用</span><br><span class="line"></span><br><span class="line">[<span class="symbol">id</span>]: <span class="link">url/to/image "Optional title attribute" 一般放在底部作为参考链接</span></span><br></pre></td></tr></table></figure></p>
-<p>hexo中插入图片的方式也是在markdown语法的基础上，我们要注意的就是hexo的图片路径如何填写,参考文章<a href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" target="_blank" rel="noopener">[4]</a></p>
-<ol>
-<li>本地引用（绝对/相对）</li>
-<li>CDN引用</li>
-</ol>
-<p>为了便捷自然需要自动的插入图片，这里可以参考这篇文章图片部分。</p>
-<p>参考资源<br>[1]: <a href="https://www.jianshu.com/p/ae4f485ab3b3" target="_blank" rel="noopener">使用 Hexo + Github 搭建博客教程，支持在新电脑同步管理项目和主题</a><br>[2]: <a href="https://zhuanlan.zhihu.com/p/34379150" target="_blank" rel="noopener">使用Hexo搭建个人Github博客</a><br>[3]: <a href="https://www.jianshu.com/p/a142eb105279" target="_blank" rel="noopener">如何写一个自己的hexo主题</a><br>[4]: <a href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" target="_blank" rel="noopener">Hexo博客搭建之在文章中插入图片</a></p>
+</ul>
+<p>也可以发送自定义数据来检索和分类错误。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Raven.captureException(<span class="string">'hello world!'</span>, &#123;<span class="attr">tags</span>: &#123;</span><br><span class="line">    locale: <span class="string">'en-us'</span></span><br><span class="line">&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>一旦sentry收到错误，在dashboard上可以看到：<br><img src="https://blog.sentry.io/img/post-images/sentry-workflow/needs-triage.png" alt="sentry dashboard"></p>
+<p>注意相同的错误类型被分组和排序，以及在给定时间内的频率和受影响的用户数量。搜索栏允许你过滤等属性问题的频率、年龄、用户受到影响,分辨率的地位,环境,或任何其他自定义数据发送的错误。这些搜索可以保存,这样你很快就会到过滤视图。</p>
+<p>点击一个问题需要你的页面可以帮助你找到根源。最重要的是堆栈跟踪显示函数调用的顺序导致错误。对于支持它的语言,你也可以看到局部和全局变量的值为单独的堆栈帧。</p>
+<p>接下来是面包屑（breadcrumbs)部分，错误发生前发生的一系列事件。这些事件类似于传统日志，但是有能力记录更加丰富的结构数据。当哨兵与web框架集成时,面包屑会自动记录像数据库调用或网络请求这样的事件,但你也可以在代码中手动标记感兴趣的事件,他们将会出现在一个后续问题的面包屑序列中。<br>最后,获取关于这个问题的其它结构化数据：<br><img src="https://blog.sentry.io/img/post-images/sentry-workflow/more-data.png" alt=""></p>
+<p>任何记录为一个标签时的异常可以作为一个过滤器。这是有用的,以确定哪些错误是来自一个特定的机器,浏览器版本等。你也可以看到标签的分布为一个问题了解的相关。</p>
+<blockquote>
+<p>sentry是一个开源错误监控平台，帮助你在真实环境中监控和修复冲突。</p>
+</blockquote>
+<p>创建一个project<br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203456944.png" alt="创建一个project"><br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203732415.png" alt=""></p>
 
       
     </div>
@@ -389,6 +403,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
 
       
       
@@ -398,15 +418,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/12/13/vue项目二三事/" rel="next" title="vue项目二三事">
+                <i class="fa fa-chevron-left"></i> vue项目二三事
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/23/持续打造Atom编写markdown/" rel="prev" title="持续打造Atom编写markdown">
-                持续打造Atom编写markdown <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初体验hexo"><span class="nav-number">1.</span> <span class="nav-text">初体验hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片问题"><span class="nav-number">1.1.</span> <span class="nav-text">图片问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端错误监控"><span class="nav-number">1.</span> <span class="nav-text">前端错误监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用sentry"><span class="nav-number">2.</span> <span class="nav-text">使用sentry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sentry-workflow"><span class="nav-number">2.1.</span> <span class="nav-text">sentry workflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">2.2.</span> <span class="nav-text">起步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SDK集成"><span class="nav-number">2.2.1.</span> <span class="nav-text">SDK集成</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -713,9 +733,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/11/23/使用hexo搭建blog/';
-          this.page.identifier = '2018/11/23/使用hexo搭建blog/';
-          this.page.title = '使用hexo搭建blog';
+          this.page.url = 'http://yoursite.com/2018/12/13/sentry/';
+          this.page.identifier = '2018/12/13/sentry/';
+          this.page.title = 'sentry';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ibeans.disqus.com/embed.js';
