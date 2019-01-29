@@ -2,6 +2,9 @@
 title: 持续打造Atom编写markdown
 date: 2018-11-23 10:17:34
 tags:
+  - atom
+  - 工具
+  - markdown
 ---
 > 一直以来都很喜欢使用Atom来写markdown文件，记录下打造过程，同时与hexo进行整合，工欲善其事必先利其器，开整。
 
