@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="从类的角度，父类和子类，子类可以继承父类。 js如何实现继承：  通过原型链，逐级查找。 拷贝父类的属性、方法到子类  不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。 继承又分单继承和多继承。 在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。如Person()：父类">
+<meta name="description" content="从类的角度，父类和子类，子类可以继承父类。 js如何实现继承：  通过原型链，逐级查找。 拷贝父类的属性、方法到子类  不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。 继承又分单继承和多继承。 在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。如Person()：父类 跨层实验1234567891011121314151617181920212223">
 <meta name="keywords" content="前端 设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="瞎想">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/瞎想/index.html">
 <meta property="og:site_name" content="豆角的绿色生活">
-<meta property="og:description" content="从类的角度，父类和子类，子类可以继承父类。 js如何实现继承：  通过原型链，逐级查找。 拷贝父类的属性、方法到子类  不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。 继承又分单继承和多继承。 在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。如Person()：父类">
+<meta property="og:description" content="从类的角度，父类和子类，子类可以继承父类。 js如何实现继承：  通过原型链，逐级查找。 拷贝父类的属性、方法到子类  不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。 继承又分单继承和多继承。 在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。如Person()：父类 跨层实验1234567891011121314151617181920212223">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T04:58:14.838Z">
+<meta property="og:updated_time" content="2019-01-25T04:59:10.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="瞎想">
-<meta name="twitter:description" content="从类的角度，父类和子类，子类可以继承父类。 js如何实现继承：  通过原型链，逐级查找。 拷贝父类的属性、方法到子类  不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。 继承又分单继承和多继承。 在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。如Person()：父类">
+<meta name="twitter:description" content="从类的角度，父类和子类，子类可以继承父类。 js如何实现继承：  通过原型链，逐级查找。 拷贝父类的属性、方法到子类  不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。 继承又分单继承和多继承。 在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。如Person()：父类 跨层实验1234567891011121314151617181920212223">
 
 
 
@@ -359,6 +359,8 @@
 <p>不管哪种实现方式，总之能实现我们想要的，子类可以拥有父类的属性和方法即可。</p>
 <p>继承又分单继承和多继承。</p>
 <p>在我理解在自然世界里父子类划分清晰的使用单继承，而不清晰的使用多继承。<br>如<br>Person()：父类</p>
+<h2 id="跨层实验"><a href="#跨层实验" class="headerlink" title="跨层实验"></a>跨层实验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"layer_list"</span>: &#123;<span class="attr">ids</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]&#125; ,<span class="comment">//层id</span></span><br><span class="line">  <span class="string">"ratio"</span>: <span class="number">30</span>,</span><br><span class="line">  <span class="string">"overlap_parent_id"</span>: <span class="string">'将要被创建的overlap的父layer id; 如果被划分的simple layer是顶层，这个为空，这里我要不要带上？'</span>,</span><br><span class="line">  <span class="string">"overlap"</span>: &#123;</span><br><span class="line">    <span class="string">"parent_id"</span> : <span class="string">""</span>,</span><br><span class="line">    <span class="string">"layer_type"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">"ratio"</span>: <span class="number">30</span>, <span class="comment">// 不可信，取上面的ratio</span></span><br><span class="line">    <span class="string">"name"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"comment"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"businessType"</span>: <span class="string">""</span>, <span class="comment">// 要不要我这边带上</span></span><br><span class="line">    <span class="string">"follower"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"developers"</span>: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"created_domain"</span> : &#123;</span><br><span class="line">    <span class="string">"parent_id"</span> : <span class="string">""</span>,</span><br><span class="line">    <span class="string">"layer_type"</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="string">"ratio"</span>: <span class="number">30</span>, <span class="comment">// 不可信</span></span><br><span class="line">    <span class="string">"name"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"comment"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"businessType"</span>: <span class="string">""</span>, <span class="comment">// 要不要我这边带上</span></span><br><span class="line">    <span class="string">"follower"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"developers"</span>: <span class="string">""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"wraperDomain"</span> : &#123; <span class="comment">// 包裹domain</span></span><br><span class="line">    <span class="string">"parent_id"</span> : <span class="string">""</span>,</span><br><span class="line">    <span class="string">"layer_type"</span>: <span class="number">3</span>,</span><br><span class="line">    <span class="string">"ratio"</span>: <span class="number">30</span>, <span class="comment">// 同上</span></span><br><span class="line">    <span class="string">"name"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"comment"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"businessType"</span>: <span class="string">""</span>, <span class="comment">// 要不要我这边带上</span></span><br><span class="line">    <span class="string">"follower"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="string">"developers"</span>: <span class="string">""</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="h5推送"><a href="#h5推送" class="headerlink" title="h5推送"></a>h5推送</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"chartDataList"</span> : [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"发表人数"</span>,</span><br><span class="line">      <span class="string">"num"</span> : <span class="string">"10080080"</span>,</span><br><span class="line">      <span class="string">"col"</span> : <span class="number">12</span>,   <span class="comment">// 趋势图所占列宽</span></span><br><span class="line">      <span class="string">"chartType"</span>: <span class="string">"ios"</span>, <span class="comment">// ios,android</span></span><br><span class="line">      <span class="string">"chartSeries"</span>: [<span class="number">1.21</span>, <span class="number">1.2</span>, <span class="number">1.21</span>, <span class="number">1.21</span>, <span class="number">1.2</span>, <span class="number">1.2</span>, <span class="number">1.2</span>, <span class="number">1.22</span>],</span><br><span class="line">      <span class="string">"timeList"</span> : [<span class="number">20190117</span>, <span class="number">20190118</span>, <span class="number">20190119</span>, <span class="number">20190120</span>, <span class="number">20190121</span>, <span class="number">20190122</span>, <span class="number">20190123</span>, <span class="number">20190124</span>],</span><br><span class="line">      <span class="string">"format"</span>: <span class="number">1</span>, <span class="comment">// 1: 普通， 2： 百分比</span></span><br><span class="line">      <span class="string">"dayRing"</span>: <span class="number">0.02</span>,</span><br><span class="line">      <span class="string">"weekRing"</span> <span class="number">0.02</span></span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"summaryTable"</span> : [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"发表人数"</span>,</span><br><span class="line">      <span class="string">"num"</span> : <span class="string">"10080080"</span>,</span><br><span class="line">      <span class="string">"chart"</span>: [<span class="number">1.21</span>, <span class="number">1.2</span>, <span class="number">1.21</span>, <span class="number">1.21</span>, <span class="number">1.2</span>, <span class="number">1.2</span>, <span class="number">1.2</span>, <span class="number">1.22</span>],</span><br><span class="line">      <span class="string">"timeList"</span> : [<span class="number">20190117</span>, <span class="number">20190118</span>, <span class="number">20190119</span>, <span class="number">20190120</span>, <span class="number">20190121</span>, <span class="number">20190122</span>, <span class="number">20190123</span>, <span class="number">20190124</span>],</span><br><span class="line">      <span class="string">"format"</span>: <span class="number">1</span>, <span class="comment">// 1: 普通， 2： 百分比</span></span><br><span class="line">      <span class="string">"dayRing"</span>: <span class="number">0.02</span>,</span><br><span class="line">      <span class="string">"weekRing"</span> <span class="number">0.02</span></span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"times"</span>: [<span class="number">20190117</span>, <span class="number">20190118</span>, <span class="number">20190119</span>, <span class="number">20190120</span>, <span class="number">20190121</span>, <span class="number">20190122</span>, <span class="number">20190123</span>, <span class="number">20190124</span>],</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">//如 summaryTable</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -457,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -475,7 +486,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -497,7 +508,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -521,6 +532,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨层实验"><span class="nav-number">1.</span> <span class="nav-text">跨层实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h5推送"><span class="nav-number">2.</span> <span class="nav-text">h5推送</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -534,7 +561,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

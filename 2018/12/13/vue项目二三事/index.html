@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="豆角的绿色生活">
 <meta property="og:description" content="日常开发中，总是对于自己的开发出来的东西不放心，尽管可以说测试的时候是好好的。但是我们无法完全预估用户的环境，因此需要有一种机制能完全还原用户操作环境，这其中包括用户设备以及用户操作逻辑。同时，我们也需要做性能监控，查看到底哪些部分耗时比较严重，有所针对地去做优化。 以上其实可以细分为错误监控和日志上报。 错误监控对于前端，错误分为三类：  接口调用失败 js运行错误（如内存溢出，不合法数据等）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-13T11:26:21.100Z">
+<meta property="og:updated_time" content="2018-12-14T14:00:22.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目二三事">
 <meta name="twitter:description" content="日常开发中，总是对于自己的开发出来的东西不放心，尽管可以说测试的时候是好好的。但是我们无法完全预估用户的环境，因此需要有一种机制能完全还原用户操作环境，这其中包括用户设备以及用户操作逻辑。同时，我们也需要做性能监控，查看到底哪些部分耗时比较严重，有所针对地去做优化。 以上其实可以细分为错误监控和日志上报。 错误监控对于前端，错误分为三类：  接口调用失败 js运行错误（如内存溢出，不合法数据等）">
@@ -366,7 +366,7 @@
 <blockquote>
 <p>throw语句用来抛出一个用户自定义的异常。当前函数的执行将被停止（throw之后的语句将不会执行），并且控制将被传递到调用堆栈中的第一个catch块。如果调用者函数中没有catch块，程序将会终止。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> err = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"出错了"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> err = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"出错了"</span>)</span><br><span class="line"></span><br><span class="line">err.message <span class="comment">// 错误提示</span></span><br><span class="line">err.stack <span class="comment">// 错误堆栈</span></span><br><span class="line">err.name <span class="comment">// 错误名称</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -498,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -520,7 +520,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -573,7 +573,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

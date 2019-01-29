@@ -91,7 +91,9 @@
 <meta property="og:image" content="https://blog.sentry.io/img/post-images/sentry-workflow/more-data.png">
 <meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203456944.png">
 <meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203732415.png">
-<meta property="og:updated_time" content="2018-12-14T01:21:12.741Z">
+<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181214212838956.png">
+<meta property="og:image" content="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181214213404233.png">
+<meta property="og:updated_time" content="2018-12-21T01:54:41.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sentry">
 <meta name="twitter:description" content="前端错误监控对于前端代码质量，有一个很好的监控和上报至关重要。准备写四篇  错误监控基础篇 性能监控基础篇 错误上报与sentry基础篇 各场景实战篇  使用sentrysentry workflow如果你是一个开发者，你的工作流可能是这样的：设计 -&amp;gt; 开发 -&amp;gt; 测试 -&amp;gt; CI/CD -&amp;gt; 发现问题 -&amp;gt; 定位问题 -&amp;gt; 修复 很多工具帮助我们开发，但是部">
@@ -388,6 +390,8 @@
 <p>sentry是一个开源错误监控平台，帮助你在真实环境中监控和修复冲突。</p>
 </blockquote>
 <p>创建一个project<br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203456944.png" alt="创建一个project"><br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181213203732415.png" alt=""></p>
+<h3 id="sourcemap管理"><a href="#sourcemap管理" class="headerlink" title="sourcemap管理"></a>sourcemap管理</h3><h4 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h4><p>安装sentry-cli<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g @sentry/cli</span><br></pre></td></tr></table></figure></p>
+<p>运行<code>sentry-cli</code>查看版本及说明：<br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181214212838956.png" alt="sentry-cli"><br>登录：<br><img src="http://pimt13n7x.bkt.clouddn.com/markdown-img-paste-20181214213404233.png" alt="login"></p>
 
       
     </div>
@@ -427,6 +431,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/15/未来简史《读书笔记》/" rel="prev" title="未来简史《读书笔记》">
+                未来简史《读书笔记》 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -515,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +545,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -570,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端错误监控"><span class="nav-number">1.</span> <span class="nav-text">前端错误监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用sentry"><span class="nav-number">2.</span> <span class="nav-text">使用sentry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sentry-workflow"><span class="nav-number">2.1.</span> <span class="nav-text">sentry workflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">2.2.</span> <span class="nav-text">起步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SDK集成"><span class="nav-number">2.2.1.</span> <span class="nav-text">SDK集成</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端错误监控"><span class="nav-number">1.</span> <span class="nav-text">前端错误监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用sentry"><span class="nav-number">2.</span> <span class="nav-text">使用sentry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sentry-workflow"><span class="nav-number">2.1.</span> <span class="nav-text">sentry workflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">2.2.</span> <span class="nav-text">起步</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SDK集成"><span class="nav-number">2.2.1.</span> <span class="nav-text">SDK集成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sourcemap管理"><span class="nav-number">2.3.</span> <span class="nav-text">sourcemap管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作："><span class="nav-number">2.3.1.</span> <span class="nav-text">准备工作：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -590,7 +598,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
