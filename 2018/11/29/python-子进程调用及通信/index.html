@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。ps: python 2.7环境 subprocess模块官方文档：subprocess  这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。  有两种方式使用该模块：">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 子进程调用及通信">
+<meta property="og:url" content="http://pantato.com/2018/11/29/python-子进程调用及通信/index.html">
+<meta property="og:site_name" content="豆角的绿色生活">
+<meta property="og:description" content="在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。ps: python 2.7环境 subprocess模块官方文档：subprocess  这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。  有两种方式使用该模块：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-02-03T09:45:37.817Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 子进程调用及通信">
+<meta name="twitter:description" content="在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。ps: python 2.7环境 subprocess模块官方文档：subprocess  这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。  有两种方式使用该模块：">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://pantato.com/2018/11/29/python-子进程调用及通信/">
+
+
+
+
+
+  <title>python 子进程调用及通信 | 豆角的绿色生活</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">豆角的绿色生活</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不畏于心，不念于行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-birthday-cake"></i> <br>
+            
+            作品
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://pantato.com/2018/11/29/python-子进程调用及通信/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="豆角">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://dn-qiniu-avatar.qbox.me/avatar/3ca4d672391069eb4335274ff53f7453?qiniu-avatar">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豆角的绿色生活">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 子进程调用及通信</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T12:57:34+08:00">
+                2018-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/29/python-子进程调用及通信/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/29/python-子进程调用及通信/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在使用python写后台接口时，需要使用grep类似的系统调用。想到的是使用子进程的方式，但是调用命令很容易，但是还需要研究下，怎么讲子进程的输入输出以及错误能够完美地和python进行结合。<br>ps: python 2.7环境</p>
+<h2 id="subprocess模块"><a href="#subprocess模块" class="headerlink" title="subprocess模块"></a>subprocess模块</h2><p>官方文档：<a href="https://docs.python.org/2/library/subprocess.html" target="_blank" rel="noopener">subprocess</a></p>
+<blockquote>
+<p>这个模块允许我们创建新的进程，连接它们的输入/输出/错误 管道（pipe），并获得返回码。</p>
+</blockquote>
+<p>有两种方式使用该模块：</p>
+<ol>
+<li>使用常见函数 call(), check_all(), check_output()</li>
+<li>使用Popen 类和communicate()方法。</li>
+</ol>
+<p>这里仅研究第二种</p>
+<h2 id="Popen类"><a href="#Popen类" class="headerlink" title="Popen类"></a>Popen类</h2><p>suprocess主要通过Popen类管理进程（创建、管理），来满足便捷函数不能满足的功能。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">subprocess</span>.<span class="title">Popen</span><span class="params">(args, bufsize=<span class="number">0</span>, executable=None,</span></span></span><br><span class="line"><span class="class"><span class="params">  stdin=None, stdout=None, stderr=None, preexec_fn=None,</span></span></span><br><span class="line"><span class="class"><span class="params">  close_fds=False, shell=False, cwd=None, env=None,</span></span></span><br><span class="line"><span class="class"><span class="params">  universal_newlines=False, startupinfo=None, creationflags=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"># <span class="title">args</span>:</span> 数组（推荐）或者是字符串。如果是数组默认执行数组第一个参数，如果是字符串默认使用平台默认shell解释器。</span><br><span class="line"><span class="comment"># shell： 默认false,表示是否使用shell作为程序执行,如果为true，args推荐使用string</span></span><br><span class="line"><span class="comment"># bufsize: 同样作为一个参数，0：无 1： line buffer, 其它正值：给定大小 负值: 系统默认。</span></span><br><span class="line"><span class="comment"># executable: 指定执行程序，shell为false时，替换args第一个参数，但是仍然传递，可以作显示实际执行的程序名的作用，shell为true，替换默认的/bin/sh</span></span><br><span class="line"><span class="comment"># stdin, stdout and stderr: 分别指定执行程序的标准输入输出，错误处理。有效值：pipe,有效文件描述符，有效文件对象，none.</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Popen实例方法"><a href="#Popen实例方法" class="headerlink" title="Popen实例方法"></a>Popen实例方法</h3><h4 id="Popen-poll"><a href="#Popen-poll" class="headerlink" title="Popen.poll()"></a>Popen.poll()</h4><p>检查子进程是否终止，设置并返回<code>returncode</code></p>
+<h4 id="Popen-wait"><a href="#Popen-wait" class="headerlink" title="Popen.wait()"></a>Popen.wait()</h4><p>等待子进程终止，设置并返回<code>returncode</code></p>
+<h4 id="Popen-communicate-input-None"><a href="#Popen-communicate-input-None" class="headerlink" title="Popen.communicate(input=None)"></a>Popen.communicate(input=None)</h4><p>与子进程交互: 向stdin发送数据, 从stdout/stderr读取数据，直到文件尾, 并等待子进程终止。<br>输入：input应该是一个要发送给子进程的字符串或none<br>输出：返回一个turple(stdoutdata, stderrdata)<br><strong>注意</strong>：</p>
+<ol>
+<li>如果想要读取或者发送数据, 需要在创建子进程时指定stdin=PIPE、stdout=PIPE、stderr=PIPE</li>
+<li>数据都是存放在内存buffer中的，数据过大时不要使用这个方法</li>
+</ol>
+<h4 id="Popen-send-signal-signal"><a href="#Popen-send-signal-signal" class="headerlink" title="Popen.send_signal(signal)"></a>Popen.send_signal(signal)</h4><p>发送<code>signal</code>信号给子进程</p>
+<h4 id="Popen-terminate"><a href="#Popen-terminate" class="headerlink" title="Popen.terminate()"></a>Popen.terminate()</h4><p>终止子进程</p>
+<h4 id="Popen-kill"><a href="#Popen-kill" class="headerlink" title="Popen.kill()"></a>Popen.kill()</h4><p>杀死子进程</p>
+<h3 id="Popen实例属性"><a href="#Popen实例属性" class="headerlink" title="Popen实例属性"></a>Popen实例属性</h3><h4 id="Popen-stdin"><a href="#Popen-stdin" class="headerlink" title="Popen.stdin"></a>Popen.stdin</h4><p>如果stdin参数是pipe,该属性将是表示数据的文件对象,否则为None</p>
+<h4 id="Popen-stdout-Popen-stderr"><a href="#Popen-stdout-Popen-stderr" class="headerlink" title="Popen.stdout Popen.stderr"></a>Popen.stdout Popen.stderr</h4><p>同上</p>
+<h4 id="Popen-pid"><a href="#Popen-pid" class="headerlink" title="Popen.pid"></a>Popen.pid</h4><p>子进程pid</p>
+<h4 id="Popen-returncode"><a href="#Popen-returncode" class="headerlink" title="Popen.returncode"></a>Popen.returncode</h4><p>子进程的返回码，由 poll() and wait() 设置，间接由communicate设置。None表示子进程还没有结束，<br>-N表示子进程通过<code>singal</code>结束</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/28/瞎想/" rel="next" title="瞎想">
+                <i class="fa fa-chevron-left"></i> 瞎想
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/29/文件上传中的那些对象23事/" rel="prev" title="文件上传中的那些对象23事">
+                文件上传中的那些对象23事 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://dn-qiniu-avatar.qbox.me/avatar/3ca4d672391069eb4335274ff53f7453?qiniu-avatar" alt="豆角">
+            
+              <p class="site-author-name" itemprop="name">豆角</p>
+              <p class="site-description motion-element" itemprop="description">记录自己的学习与生活，love the life!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#subprocess模块"><span class="nav-number">1.</span> <span class="nav-text">subprocess模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Popen类"><span class="nav-number">2.</span> <span class="nav-text">Popen类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Popen实例方法"><span class="nav-number">2.1.</span> <span class="nav-text">Popen实例方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-poll"><span class="nav-number">2.1.1.</span> <span class="nav-text">Popen.poll()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-wait"><span class="nav-number">2.1.2.</span> <span class="nav-text">Popen.wait()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-communicate-input-None"><span class="nav-number">2.1.3.</span> <span class="nav-text">Popen.communicate(input=None)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-send-signal-signal"><span class="nav-number">2.1.4.</span> <span class="nav-text">Popen.send_signal(signal)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-terminate"><span class="nav-number">2.1.5.</span> <span class="nav-text">Popen.terminate()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-kill"><span class="nav-number">2.1.6.</span> <span class="nav-text">Popen.kill()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Popen实例属性"><span class="nav-number">2.2.</span> <span class="nav-text">Popen实例属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-stdin"><span class="nav-number">2.2.1.</span> <span class="nav-text">Popen.stdin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-stdout-Popen-stderr"><span class="nav-number">2.2.2.</span> <span class="nav-text">Popen.stdout Popen.stderr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-pid"><span class="nav-number">2.2.3.</span> <span class="nav-text">Popen.pid</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Popen-returncode"><span class="nav-number">2.2.4.</span> <span class="nav-text">Popen.returncode</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">豆角</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ibeans.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://pantato.com/2018/11/29/python-子进程调用及通信/';
+          this.page.identifier = '2018/11/29/python-子进程调用及通信/';
+          this.page.title = 'python 子进程调用及通信';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ibeans.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
